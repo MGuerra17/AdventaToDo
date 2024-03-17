@@ -9,5 +9,6 @@ module.exports = {
       },
     ],
     'react/no-unstable-nested-components': 'off',
+    curly: 'off',
   },
 };
