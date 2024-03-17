@@ -24,6 +24,7 @@ export default function useToDo() {
   }, []);
 
   const handleNewTodo = async (newTodo: Todo) => {
+    setLoading(true);
     const {error} = await api.todo.create(newTodo);
 
     if (error != null) {
@@ -33,10 +34,12 @@ export default function useToDo() {
 
     const newTodos = [...todos, newTodo];
 
+    setLoading(false);
     setTodos(newTodos);
   };
 
   const handleToggleComplete = async (id: string) => {
+    setLoading(true);
     const newTodos = todos.map(todo => ({...todo}));
     const todoIndex = newTodos.findIndex(todo => todo.id === id);
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
@@ -48,10 +51,12 @@ export default function useToDo() {
       return;
     }
 
+    setLoading(false);
     setTodos(newTodos);
   };
 
   const handleDelete = async (id: string) => {
+    setLoading(true);
     const {error} = await api.todo.delete(id);
 
     if (error != null) {
@@ -60,6 +65,8 @@ export default function useToDo() {
     }
 
     const newTodos = todos.filter(todo => todo.id !== id);
+
+    setLoading(false);
     setTodos(newTodos);
   };
 
