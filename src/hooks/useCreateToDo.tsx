@@ -1,16 +1,11 @@
 import React from 'react';
 import {ToDoCategory, Todo} from '../interfaces/toDo';
 import uuid from 'react-native-uuid';
+import type {CreateToDoValidationErrors} from '../interfaces/validations';
 
 interface UseCreateToDoProps {
   onCreate: (todo: Todo) => Promise<void>;
   onRequestClose: () => void;
-}
-
-interface CreateToDoValidationErrors {
-  title: string | null;
-  description: string | null;
-  category: string | null;
 }
 
 export default function useCreateToDo({
