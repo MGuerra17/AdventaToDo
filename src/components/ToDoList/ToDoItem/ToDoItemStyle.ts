@@ -11,6 +11,9 @@ export const ToDoItemStyles = StyleSheet.create({
     paddingVertical: theme.spacing.s,
     borderRadius: theme.borderRadius.m,
   },
+  loadingContainer: {
+    opacity: 0.5,
+  },
   togglerButton: {
     paddingHorizontal: theme.spacing.m,
     alignSelf: 'stretch',
