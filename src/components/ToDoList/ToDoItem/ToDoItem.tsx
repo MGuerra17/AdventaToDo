@@ -32,9 +32,14 @@ export default function ToDoItem({
         itemId={data.id}
         completed={data.completed}
         onToggle={onToggleComplete}
+        disabled={isLoading}
       />
       <Details data={data} />
-      <DeleteTodoButton itemId={data.id} onDelete={onDelete} />
+      <DeleteTodoButton
+        itemId={data.id}
+        onDelete={onDelete}
+        disabled={isLoading}
+      />
     </View>
   );
 }

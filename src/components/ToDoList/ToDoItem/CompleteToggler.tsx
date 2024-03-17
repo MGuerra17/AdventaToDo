@@ -6,12 +6,14 @@ import {ToDoItemStyles, getTogglerStyle} from './ToDoItemStyle';
 interface CompletedToggleProps {
   completed: boolean;
   itemId: string;
+  disabled?: boolean;
   onToggle: (id: string) => void;
 }
 
 export default function CompleteToggler({
   completed,
   itemId,
+  disabled,
   onToggle,
 }: CompletedToggleProps) {
   const togglerStyle = getTogglerStyle(completed);
@@ -19,7 +21,8 @@ export default function CompleteToggler({
   return (
     <Pressable
       style={ToDoItemStyles.togglerButton}
-      onPress={() => onToggle(itemId)}>
+      onPress={() => onToggle(itemId)}
+      disabled={disabled}>
       <View style={[ToDoItemStyles.togglerView, togglerStyle]}>
         {completed && (
           <CheckIcon
