@@ -26,4 +26,7 @@ export const ToDoListStyles = StyleSheet.create({
     ...theme.textVariants.largeBold,
     color: theme.colors.secondaryText,
   },
+  spinner: {
+    marginTop: theme.spacing.l,
+  },
 });

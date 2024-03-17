@@ -1,6 +1,7 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {ActivityIndicator, Text, View} from 'react-native';
 import {ToDoListStyles} from './toDoListStyles';
+import {theme} from '../../constants/theme';
 
 interface ToDoListEmptyComponentProps {
   loading: boolean;
@@ -14,6 +15,13 @@ export default function ToDoListEmptyComponent({
       <Text style={ToDoListStyles.emptyListText}>
         {loading ? 'Cargando tareas...' : 'No hay tareas aún'}
       </Text>
+      {loading && (
+        <ActivityIndicator
+          size="large"
+          color={theme.colors.accent}
+          style={ToDoListStyles.spinner}
+        />
+      )}
     </View>
   );
 }
