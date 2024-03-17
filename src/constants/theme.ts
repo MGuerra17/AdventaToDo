@@ -1,0 +1,86 @@
+const palette = {
+  purple: '#878AF5',
+  darkPurple: '#666AF6',
+  opacityDarkPurple: '#666AF622',
+  blue: '#4457FF',
+  lightBlue: '#ECEDFD',
+  darkBlue: '#31446C',
+  gray: '#A9A9A9',
+  lightGray: '#E6E8EB',
+  green: '#71A56B',
+  lightGreen: '#F1F6F0',
+  orange: '#F5873C',
+  lightOrange: '#FEF3EC',
+  red: '#DF5032',
+  white: '#FFFFFF',
+  snow: '#F7F7F7',
+  opacityBlack: '#00000066',
+};
+
+export const theme = {
+  colors: {
+    background: palette.snow,
+    backdrop: palette.opacityBlack,
+    primary: palette.purple,
+    accent: palette.darkPurple,
+    transparentAccent: palette.opacityDarkPurple,
+    primaryText: palette.darkBlue,
+    secondaryText: palette.gray,
+    border: palette.lightGray,
+    personalTag: palette.blue,
+    personalTagBackground: palette.lightBlue,
+    workTag: palette.orange,
+    workTagBackground: palette.lightOrange,
+    studyTag: palette.green,
+    studyTagBackground: palette.lightGreen,
+    red: palette.red,
+    white: palette.white,
+  },
+  spacing: {
+    xxs: 2,
+    xs: 4,
+    s: 8,
+    m: 16,
+    l: 24,
+    xl: 40,
+  },
+  borderRadius: {
+    s: 8,
+    m: 16,
+    l: 24,
+    xl: 40,
+  },
+  textVariants: {
+    header: {
+      fontFamily: 'Nunito-Bold',
+      fontSize: 36,
+      fontWeight: '600' as '600',
+    },
+    body: {
+      fontFamily: 'Nunito-Regular',
+      fontSize: 16,
+    },
+    bodyBold: {
+      fontFamily: 'Nunito-Bold',
+      fontSize: 16,
+      fontWeight: '600' as '600',
+    },
+    large: {
+      fontFamily: 'Nunito-Regular',
+      fontSize: 20,
+    },
+    largeBold: {
+      fontFamily: 'Nunito-Bold',
+      fontSize: 20,
+      fontWeight: '600' as '600',
+    },
+    small: {
+      fontFamily: 'Nunito-Regular',
+      fontSize: 12,
+    },
+    extraSmall: {
+      fontFamily: 'Nunito-Regular',
+      fontSize: 10,
+    },
+  },
+};
