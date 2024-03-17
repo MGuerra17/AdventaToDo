@@ -8,17 +8,26 @@ import Details from './Details';
 
 interface TodoItemProps {
   data: Todo;
+  loading: boolean;
+  toggledTodoId: string | null;
   onToggleComplete: (id: string) => void;
   onDelete: (id: string) => void;
 }
 
 export default function ToDoItem({
   data,
+  loading,
+  toggledTodoId,
   onToggleComplete,
   onDelete,
 }: TodoItemProps) {
+  const isLoading = loading && toggledTodoId === data.id;
   return (
-    <View style={ToDoItemStyles.container}>
+    <View
+      style={[
+        ToDoItemStyles.container,
+        isLoading && ToDoItemStyles.loadingContainer,
+      ]}>
       <CompleteToggler
         itemId={data.id}
         completed={data.completed}

@@ -7,6 +7,7 @@ export default function useToDo() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [deleteTodoId, setDeleteTodoId] = useState<string | null>(null);
+  const [toggledTodoId, setToggledTodoId] = useState<string | null>(null);
 
   useEffect(() => {
     const getTodos = async () => {
@@ -40,6 +41,7 @@ export default function useToDo() {
 
   const handleToggleComplete = async (id: string) => {
     setLoading(true);
+    setToggledTodoId(id);
     const newTodos = todos.map(todo => ({...todo}));
     const todoIndex = newTodos.findIndex(todo => todo.id === id);
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
@@ -52,6 +54,7 @@ export default function useToDo() {
     }
 
     setLoading(false);
+    setToggledTodoId(null);
     setTodos(newTodos);
   };
 
@@ -75,6 +78,7 @@ export default function useToDo() {
   return {
     todos,
     loading,
+    toggledTodoId,
     deleteTodoId,
     setDeleteTodoId,
     handleNewTodo,

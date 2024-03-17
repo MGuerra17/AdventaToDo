@@ -11,6 +11,7 @@ export default function ToDoList() {
   const {
     todos,
     loading,
+    toggledTodoId,
     deleteTodoId,
     setDeleteTodoId,
     handleNewTodo,
@@ -28,6 +29,8 @@ export default function ToDoList() {
         renderItem={({item}) => (
           <ToDoItem
             data={item}
+            toggledTodoId={toggledTodoId}
+            loading={loading}
             onToggleComplete={handleToggleComplete}
             onDelete={() => setDeleteTodoId(item.id)}
           />
