@@ -6,15 +6,22 @@ import {deleteToDoModalStyles} from './deleteToDoModalStyles';
 
 interface DeleteToDoModalProps {
   visible: boolean;
-  onDelete: () => void;
+  loading: boolean;
+  onDelete: () => Promise<void>;
   onRequestClose: () => void;
 }
 
 export default function DeleteToDoModal({
   visible,
+  loading,
   onDelete,
   onRequestClose,
 }: DeleteToDoModalProps) {
+  const handleDelete = async () => {
+    await onDelete?.();
+    onRequestClose();
+  };
+
   return (
     <ModalLayout
       title="Eliminar tarea"
@@ -30,10 +37,11 @@ export default function DeleteToDoModal({
         </Text>
       </View>
       <ModalControls
-        mainButtonText="Eliminar"
+        loading={loading}
+        mainButtonText={loading ? 'Eliminando...' : 'Eliminar'}
         type="delete"
         onRequestClose={onRequestClose}
-        onConfirm={onDelete}
+        onConfirm={handleDelete}
       />
     </ModalLayout>
   );

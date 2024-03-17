@@ -37,9 +37,10 @@ export default function ToDoList() {
       />
       <AddToDoButton onCreate={handleNewTodo} />
       <DeleteToDoModal
+        loading={loading}
         visible={deleteTodoId != null}
         onRequestClose={() => setDeleteTodoId(null)}
-        onDelete={() => (deleteTodoId ? handleDelete(deleteTodoId) : null)}
+        onDelete={() => handleDelete(deleteTodoId)}
       />
     </View>
   );

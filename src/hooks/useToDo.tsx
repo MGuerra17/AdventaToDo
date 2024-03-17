@@ -55,7 +55,9 @@ export default function useToDo() {
     setTodos(newTodos);
   };
 
-  const handleDelete = async (id: string) => {
+  const handleDelete = async (id?: string | null) => {
+    if (!id) return;
+
     setLoading(true);
     const {error} = await api.todo.delete(id);
 
