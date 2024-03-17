@@ -11,6 +11,7 @@ import {textInputStyles} from './textInputStyles';
 
 type TextInputProps = DefaultProps & {
   label: string;
+  required?: boolean;
   containerStyle?: StyleProp<ViewStyle>;
   error?: string | null | undefined;
 };
@@ -18,12 +19,16 @@ type TextInputProps = DefaultProps & {
 export default function TextInput({
   label,
   style,
+  required,
   containerStyle,
   ...props
 }: TextInputProps) {
   return (
     <View style={containerStyle}>
-      <Text style={textInputStyles.label}>{label}</Text>
+      <Text style={textInputStyles.label}>
+        {label}
+        {required && <Text style={textInputStyles.required}>*</Text>}
+      </Text>
       <View style={[textInputStyles.container, style]}>
         <DefaultTextInput
           {...props}

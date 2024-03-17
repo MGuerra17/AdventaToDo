@@ -14,6 +14,9 @@ export const categoryInputStyles = StyleSheet.create({
     color: theme.colors.primaryText,
     marginBottom: theme.spacing.s,
   },
+  required: {
+    color: theme.colors.red,
+  },
   itemContainer: {
     padding: theme.spacing.s,
     alignItems: 'center',

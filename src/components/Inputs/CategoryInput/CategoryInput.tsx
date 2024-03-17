@@ -15,7 +15,9 @@ export default function CategoryInput({
 }: CategoryInputProps) {
   return (
     <>
-      <Text style={categoryInputStyles.label}>Categoría</Text>
+      <Text style={categoryInputStyles.label}>
+        Categoría<Text style={categoryInputStyles.required}>*</Text>
+      </Text>
       <View style={categoryInputStyles.container}>
         {Object.values(ToDoCategory).map(category => {
           return (

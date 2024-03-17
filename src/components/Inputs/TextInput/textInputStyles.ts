@@ -15,6 +15,9 @@ export const textInputStyles = StyleSheet.create({
     color: theme.colors.primaryText,
     marginBottom: theme.spacing.xs,
   },
+  required: {
+    color: theme.colors.red,
+  },
   input: {
     ...theme.textVariants.body,
     color: theme.colors.primaryText,

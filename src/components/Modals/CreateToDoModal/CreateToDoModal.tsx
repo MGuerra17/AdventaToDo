@@ -36,6 +36,7 @@ export default function CreateToDoModal({
       visible={visible}
       onRequestClose={onRequestClose}>
       <TextInput
+        required
         label="Titulo"
         containerStyle={createToDoModalStyles.input}
         placeholder="Ej. Estudiar programación"
@@ -46,6 +47,8 @@ export default function CreateToDoModal({
       <TextInput
         label="Descripción"
         placeholder="Ej. Leer el libro de Clean Code"
+        multiline
+        maxLength={200}
         numberOfLines={3}
         containerStyle={createToDoModalStyles.input}
         value={description}
