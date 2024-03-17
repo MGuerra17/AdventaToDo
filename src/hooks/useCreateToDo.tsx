@@ -29,6 +29,10 @@ export default function useCreateToDo({
     category: null,
   });
 
+  React.useEffect(() => {
+    setErrors(prev => ({...prev, title: null}));
+  }, [title]);
+
   const handleCreate = async () => {
     if (title === '') {
       setErrors(prev => ({...prev, title: 'El título es obligatorio'}));
