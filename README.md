@@ -1,6 +1,12 @@
 # Aplicación de Lista de Tareas (To-Do)
 
+![image](https://github.com/MGuerra17/AdventaToDo/assets/80714832/63c9bb52-4b6a-479e-84f2-d5a57bac22d0)
+
 Esta es una aplicación móvil desarrollada en React Native para la gestión de tareas (To-Do). La aplicación está conectada a un servidor en línea para la persistencia de datos. El servidor aloja una API REST que puedes encontrar en [https://todo-server-y00c.onrender.com/todos](https://todo-server-y00c.onrender.com/todos).
+
+## Nota Importante
+
+La primera solicitud a la API puede tardar más tiempo de lo habitual debido a que el servidor puede estar pausado y necesita reiniciarse. Después de la primera solicitud, el servidor estará en funcionamiento y las respuestas serán más rápidas.
 
 ## Empezando
 
