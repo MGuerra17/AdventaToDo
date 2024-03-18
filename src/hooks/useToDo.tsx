@@ -7,7 +7,6 @@ export default function useToDo() {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [deleteTodoId, setDeleteTodoId] = useState<string | null>(null);
-  const [toggledTodoId, setToggledTodoId] = useState<string | null>(null);
 
   useEffect(() => {
     const getTodos = async () => {
@@ -41,12 +40,13 @@ export default function useToDo() {
 
   const handleToggleComplete = async (id: string) => {
     setLoading(true);
-    setToggledTodoId(id);
-    const newTodos = todos.map(todo => ({...todo}));
-    const todoIndex = newTodos.findIndex(todo => todo.id === id);
-    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+    const selectedToDo = todos.find(todo => todo.id === id);
+    const newToDo = {
+      ...selectedToDo,
+      completed: !selectedToDo?.completed,
+    } as Todo;
 
-    const {error} = await api.todo.update(newTodos[todoIndex]);
+    const {error} = await api.todo.update(newToDo);
 
     if (error != null) {
       Alert.alert('Error', 'Ha ocurrido un error al actualizar la tarea');
@@ -54,8 +54,9 @@ export default function useToDo() {
     }
 
     setLoading(false);
-    setToggledTodoId(null);
-    setTodos(newTodos);
+    setTodos((prevTodos: Todo[]) =>
+      prevTodos.map(todo => (todo.id === id ? newToDo : todo)),
+    );
   };
 
   const handleDelete = async (id?: string | null) => {
@@ -78,7 +79,6 @@ export default function useToDo() {
   return {
     todos,
     loading,
-    toggledTodoId,
     deleteTodoId,
     setDeleteTodoId,
     handleNewTodo,

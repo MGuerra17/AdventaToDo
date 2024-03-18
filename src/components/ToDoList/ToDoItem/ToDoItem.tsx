@@ -8,20 +8,23 @@ import Details from './Details';
 
 interface TodoItemProps {
   data: Todo;
-  loading: boolean;
-  toggledTodoId: string | null;
-  onToggleComplete: (id: string) => void;
+  onToggleComplete: (id: string) => Promise<void>;
   onDelete: (id: string) => void;
 }
 
 export default function ToDoItem({
   data,
-  loading,
-  toggledTodoId,
   onToggleComplete,
   onDelete,
 }: TodoItemProps) {
-  const isLoading = loading && toggledTodoId === data.id;
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const handleToggleComplete = async () => {
+    setIsLoading(true);
+    await onToggleComplete(data.id);
+    setIsLoading(false);
+  };
+
   return (
     <View
       style={[
@@ -29,9 +32,8 @@ export default function ToDoItem({
         isLoading && ToDoItemStyles.loadingContainer,
       ]}>
       <CompleteToggler
-        itemId={data.id}
         completed={data.completed}
-        onToggle={onToggleComplete}
+        onToggle={handleToggleComplete}
         disabled={isLoading}
       />
       <Details data={data} />
