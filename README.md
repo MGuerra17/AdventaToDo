@@ -1,79 +1,68 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Aplicación de Lista de Tareas (To-Do)
 
-# Getting Started
+Esta es una aplicación móvil desarrollada en React Native para la gestión de tareas (To-Do). La aplicación está conectada a un servidor en línea para la persistencia de datos. El servidor aloja una API REST que puedes encontrar en [https://todo-server-y00c.onrender.com/todos](https://todo-server-y00c.onrender.com/todos).
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Empezando
 
-## Step 1: Start the Metro Server
+Sigue estos pasos para ejecutar el proyecto localmente:
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+### Requisitos previos
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Asegúrate de tener instalado lo siguiente en tu máquina de desarrollo:
 
-```bash
-# using npm
-npm start
+- Node.js
+- npm (Node Package Manager)
+- React Native CLI
 
-# OR using Yarn
-yarn start
-```
+### Instalación
 
-## Step 2: Start your Application
+1. Clona este repositorio en tu máquina local:
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+   ```bash
+   git clone https://github.com/MGuerra17/AdventaToDo.git
+   ```
 
-### For Android
+2. Navega hasta el directorio del proyecto:
 
-```bash
-# using npm
-npm run android
+   ```bash
+   cd AdventaToDo
+   ```
 
-# OR using Yarn
-yarn android
-```
+3. Instala las dependencias usando npm:
 
-### For iOS
+   ```bash
+   npm install
+   ```
 
-```bash
-# using npm
-npm run ios
+### Ejecutar la Aplicación
 
-# OR using Yarn
-yarn ios
-```
+1. Asegúrate de que el servidor esté en funcionamiento en [https://todo-server-y00c.onrender.com/todos](https://todo-server-y00c.onrender.com/todos).
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+2. Inicia el servidor de desarrollo de React Native:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+   ```bash
+   npm start
+   ```
 
-## Step 3: Modifying your App
+3. Ejecuta la aplicación en tu plataforma preferida (Android o iOS):
 
-Now that you have successfully run the app, let's modify it.
+   Para Android:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+   ```bash
+   npm run android
+   ```
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+   Para iOS:
 
-## Congratulations! :tada:
+   ```bash
+   npm run ios
+   ```
 
-You've successfully run and modified your React Native App. :partying_face:
+4. La aplicación debería estar funcionando en tu simulador o dispositivo.
 
-### Now what?
+## Uso
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- Al abrir la aplicación, verás una lista de tareas obtenidas desde el servidor.
+- Puedes añadir nuevas tareas pulsando el botón "+" en la parte inferior derecha de la pantalla.
+- Presiona en el boton eliminar en la parte derecha de una tarea para eliminarla.
+- Toca en el checkbox de una tarea para marcarla como completada.
