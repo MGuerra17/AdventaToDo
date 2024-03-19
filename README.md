@@ -61,6 +61,9 @@ Asegúrate de tener instalado lo siguiente en tu máquina de desarrollo:
    Para iOS:
 
    ```bash
+   // Si es necesario
+   cd ios && pod install
+   
    npm run ios
    ```
 
